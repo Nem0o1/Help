@@ -18,7 +18,7 @@ private:
     int a = 0;
 public:
     Base(){}
-    void Massik() {
+    void Massik(int str, int stlb) {
         int** masik = new int* [str];
         for (int i = 0; i < str; i++) {
             masik[i] = new int[stlb];
@@ -35,7 +35,7 @@ public:
             cout << endl;
         }
     }
-    void CountProstieChisla() {
+    void CountProstieChisla(int str, int stlb) {
         for (int i = 0; i < str; i++) {
             for (int j = 0; j < stlb; j++) { // перебор массива
                 int counter = 0;
@@ -56,7 +56,7 @@ public:
         }
         cout << sum_pch << " - сумма простых чисел" << endl;
     }
-    void StolbicVMassiv() {
+    void StolbicVMassiv(int str, int stlb) {
         int half_masik = str * stlb / 2;
         int* tiny{ new int[stlb] };
         if (sum_pch >= half_masik) {
@@ -71,7 +71,7 @@ public:
             cout << endl;
         }
     }
-    void Sortirovka() {
+    void Sortirovka(int str, int stlb) {
         for (int i = 1; i < stlb; ++i){
             for (int r = 0; r < stlb - i; r++){
                 if (tiny[r] < tiny[r + 1]){
@@ -108,10 +108,10 @@ class Child : public Base // класс child наследуется от Base �
 {
 public:
     Child(int str, int stlb) {
-        Massik();
-        CountProstieChisla();
-        StolbicVMassiv();
-        Sortirovka();
+        Massik(str, stlb);
+        CountProstieChisla(str, stlb);
+        StolbicVMassiv(str, stlb);
+        Sortirovka(str, stlb);
     }
 
     //Конструктор вызывающий все функции внутри из базового класса
