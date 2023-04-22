@@ -12,20 +12,20 @@ private:
     int size;
     int sum_pch = 0;
     int* tiny;
-    int hal_fmasik;
+    int half_masik;
     int temp;
-    int counter = 0;
+    int counter;
     int a = 0;
 public:
     Base(){}
     void Massik(int str, int stlb) {
-        int** masik = new int* [str];
+        masik = new int* [str];
         for (int i = 0; i < str; i++) {
             masik[i] = new int[stlb];
         }
         for (int i = 0; i < str; i++) {
             for (int j = 0; j < stlb; j++) {
-                masik[i][j] = rand() % 13;
+                masik[i][j] = rand() % 12 +1;
             }
         }
         for (int i = 0; i < str; i++) {
@@ -36,9 +36,11 @@ public:
         }
     }
     void CountProstieChisla(int str, int stlb) {
+
         for (int i = 0; i < str; i++) {
+
             for (int j = 0; j < stlb; j++) { // перебор массива
-                int counter = 0;
+                counter = 0;
                 for (int m = 1; m < (masik[i][j] / 2 + 1); m++) {
                     if (masik[i][j] % m == 0) {
                         counter++;
@@ -57,8 +59,8 @@ public:
         cout << sum_pch << " - сумма простых чисел" << endl;
     }
     void StolbicVMassiv(int str, int stlb) {
-        int half_masik = str * stlb / 2;
-        int* tiny{ new int[stlb] };
+        half_masik = str * stlb / 2;
+        tiny = { new int[stlb] };
         if (sum_pch >= half_masik) {
             for (int i = 0; i < str; i++) {
                 tiny[i] = masik[i][stlb - 1];
